@@ -183,6 +183,90 @@ header {
     }
 }
 
+/*-- Slider --*/
+
+.slider-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: var(--spacing-lg);
+    transition: height 0.5s ease-in-out;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.slide.active {
+    position: relative;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.slide.entering {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideInFromRight 0.5s ease-in-out forwards;
+    pointer-events: none;
+    visibility: visible;
+}
+
+.slide.leaving {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideOutToLeft 0.5s ease-in-out forwards;
+    pointer-events: none;
+    visibility: visible;
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
 /*-- Steps --*/
 
 .steps-container {
@@ -195,18 +279,20 @@ header {
     margin-bottom: var(--spacing-lg);
     align-self: center;
     max-width: 150px;
+    --progress-width: 0%;
 
     &:before {
         content: '';
         display: block;
         position: absolute;
         left: 0;
-        right: 0;
         top: 50%;
         transform: translateY(-50%);
-        height: 2px;
+        height: 4px;
         background-color: var(--bleu);
         z-index: 1;
+        width: var(--progress-width);
+        transition: width 0.5s ease-in-out;
     }
 
     .step {
@@ -332,7 +418,7 @@ header {
 /* Media queries pour tablette et desktop */
 @media screen and (min-width: 768px) {
     .steps-form {
-        max-width: 70vw;
+        /* max-width: 70vw; */
         padding: var(--spacing-xl);
     }
 
