@@ -2,19 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EasyWatch</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to EasyWatch</h1>
+        <a href="/index.html">
+            <h1>
+                <span class="easy">Easy</span><span class="watch">Watch.</span>
+            </h1>
+        </a>
     </header>
     <main>
-        <p>Enjoy your favorite content easily and comfortably.</p>
+        <form class="steps-form">
+            <div class="steps-container">
+                <span id="step-1" class="step active">1</span>
+                <span id="step-2" class="step active">2</span>
+                <span id="step-3" class="step">3</span>
+                <span id="step-4" class="step">4</span>
+            </div>
+            <h2>Feed your knowledges</h2>
+            <label for="tags">Select tags that you’re interested in</label>
+            <div class="tags-container">
+                <input type="checkbox" id="tag-1" name="tag-1" value="1">
+                <label for="tag-1">Tag 1</label>
+                <input type="checkbox" id="tag-2" name="tag-2" value="2">
+                <label for="tag-2">Tag 2</label>
+                <input type="checkbox" id="tag-3" name="tag-3" value="3">
+                <label for="tag-3">Tag 3</label>
+                <input type="checkbox" id="tag-4" name="tag-4" value="4">
+                <label for="tag-4">Tag 4</label>
+            </div>
+            <a href="/pages/create-feed.html" class="blue btn">
+                <span>pull</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </form>
     </main>
     <footer>
         <p>&copy; 2024 EasyWatch. All rights reserved.</p>
     </footer>
-    <script src="easywatch.js"></script>
+    <script src="../easywatch.js"></script>
 </body>
 </html>
