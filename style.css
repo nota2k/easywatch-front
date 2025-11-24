@@ -1,34 +1,38 @@
 @font-face {
     font-family: 'ProximaNova';
-    src: url('fonts/ProximaNova-Regular.woff2') format('woff2'),
-         url('fonts/ProximaNova-Regular.woff') format('woff');
+    src: url('/assets/fonts/proximanova/ProximaNova-Alt-Regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'ProximaNova';
-    src: url('fonts/ProximaNova-Bold.woff2') format('woff2'),
-         url('fonts/ProximaNova-Bold.woff') format('woff');
+    src: url('/assets/fonts/proximanova/ProximaNova-Alt-Bold.otf') format('opentype');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'ProximaNova';
-    src: url('fonts/ProximaNova-Italic.woff2') format('woff2'),
-         url('fonts/ProximaNova-Italic.woff') format('woff');
+    src: url('/assets/fonts/proximanova/ProximaNova-Alt-Regular-Italic.otf') format('opentype');
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'ProximaNova';
-    src: url('fonts/ProximaNova-BoldItalic.woff2') format('woff2'),
-         url('fonts/ProximaNova-BoldItalic.woff') format('woff');
+    src: url('/assets/fonts/proximanova/ProximaNova-Alt-Bold-Italic.otf') format('opentype');
     font-weight: 700;
     font-style: italic;
 }
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('/assets/fonts/proximanova/ProximaNova-Alt-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
 
 :root {
     --bleu: #000085;
@@ -46,6 +50,9 @@
     --spacing-xxxxxl: 54px;
     --border-radius-xs: 8px;
     --border-radius-sm: 12px;
+    --border-radius-md: 18px;
+    --border-radius-lg: 24px;
+    --border-radius-xl: 30px;
     --font-size-xs: clamp(12px, 1.5vw, 14px);
     --font-size-sm: clamp(14px, 1.5vw, 18px);
     --font-size-md: clamp(16px, 1.5vw, 20px);
@@ -67,4 +74,50 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* -- Typography -- */
+h1 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--bleu);
+}
+
+h2 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--bleu);
+}
+
+a {
+    text-decoration: none;
+    color: var(--bleu);
+}
+
+.steps-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    background-color: var(--jaune);
+    width: 100%;
+    max-width: 60vw;
+    border-radius: var(--border-radius-xl);
+
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: var(--font-size-lg);
+    }
 }
