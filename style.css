@@ -342,12 +342,13 @@ form{
     gap: var(--spacing-sm);
     padding: var(--spacing-sm) var(--spacing-xl);
     border: none;
-    min-width: 250px;
+    min-width: 150px;
     border-radius: 100px;
     font-size: var(--font-size-sm);
     cursor: pointer;
-    /* transition: all 0.2s ease-in-out; */
-    flex-grow: 2;
+    width: 100%;
+    max-width: 250px;
+    box-sizing: border-box;
 
     span {
         transition: transform 0.2s ease-in-out;
