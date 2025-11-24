@@ -91,7 +91,7 @@ body {
     background-image: url('assets/img/background-noise.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     overflow-x: hidden;
 }
 
@@ -362,6 +362,15 @@ header {
         cursor: pointer;
     }
 
+    .tag {
+        font-size: var(--font-size-xs);
+        font-weight: 400;
+        background-color: var(--jaune);
+        border-radius: var(--border-radius-xl);
+        padding: 5px var(--spacing-sm);
+        color: var(--bleu);
+    }
+
     input:checked + label {
         font-weight: 700;
         background-color: var(--bleu);
@@ -525,6 +534,13 @@ textarea {
     background-color: var(--white);
     padding: var(--spacing-md);
     border-top: 5px solid var(--bleu);
+
+    h3 {
+        font-size: var(--font-size-xs);
+        font-weight: 700;
+        color: var(--bleu);
+        margin: 0 0 var(--spacing-sm) 0;
+    }
 }
 
 .icon-btn{
@@ -555,4 +571,5 @@ textarea {
         background-color: var(--jaune);
         color: var(--bleu);
     }
+    
 }
