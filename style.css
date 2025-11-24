@@ -183,6 +183,10 @@ header {
     }
 }
 
+.semibold {
+    font-weight: 800;
+}
+
 /*-- Slider --*/
 
 .slider-container {
@@ -264,6 +268,50 @@ header {
     to {
         opacity: 0;
         transform: translateX(-100%);
+    }
+}
+
+.slide.entering-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideInFromLeft 0.5s ease-in-out forwards;
+    pointer-events: none;
+    visibility: visible;
+}
+
+.slide.leaving-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideOutToRight 0.5s ease-in-out forwards;
+    pointer-events: none;
+    visibility: visible;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
     }
 }
 
@@ -393,7 +441,7 @@ header {
         font-weight: 400;
     }
 
-    .rss-input {
+    input[type="email"], input[type="text"] {
         width: 100%;
         padding: var(--spacing-md);
         border: none;
@@ -511,11 +559,52 @@ header {
         background-color: var(--bleu);
         color: var(--white);
     }
+
+    &.outline {
+        background-color: transparent;
+        border: 2px solid var(--bleu);
+        color: var(--bleu);
+
+        &:hover {
+            background-color: var(--bleu);
+            color: var(--white);
+            opacity: 1;
+
+            span {
+                transform: translateX(-80%);
+            }
+
+            svg {
+                transform: translateX(10px);
+            }
+        }
+    }
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    width: 100%;
+    margin-top: var(--spacing-lg);
+
+    .btn {
+        margin-top: 0;
+        flex: 1;
+    }
 }
 
 @media screen and (min-width: 768px) {
     .btn {
         max-width: 250px;
+    }
+
+    .buttons-container {
+        .btn {
+            max-width: none;
+        }
     }
 }
 
@@ -580,9 +669,11 @@ select {
 textarea {
     width: 100%;
     box-sizing: border-box;
-    min-height: 200px;
-    border-radius:var(--border-radius-sm);
+    min-height: 70vh;
+    font-family: 'ProximaNova';
+    border-radius: var(--border-radius-sm);
     padding: var(--spacing-md);
+    font-size: var(--font-size-md);
 }
 
 .result-container {

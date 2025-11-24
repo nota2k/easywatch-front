@@ -29,6 +29,9 @@
                     <form class="steps-form">
                         <h2>Feed your knowledges</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at quam sed orci semper imperdiet eget non nulla. Nam pellentesque lacinia eros quis interdum. Cras posuere ex sit amet turpis imperdiet, non scelerisque nisi volutpat. Fusce nec pharetra odio, ut laoreet tellus. Praesent accumsan odio tellus, sit amet ornare lorem finibus interdum. Pellentesque a venenatis magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris vel tortor id neque ultrices blandit porttitor et nibh.</p>
+                        <label for="email"><b class="semibold">Enter your email</b></label>
+                        <input type="email" placeholder="Enter your email" class="email-input" id="email-input">
+                        <label for="rss-feed"><b class="semibold">Enter your RSS feed URL</b></label>
                         <input type="text" placeholder="RSS feed" class="rss-input" id="rss-input">
                         <button type="button" class="blue btn next-step-btn">
                             <span>pull</span>
@@ -54,12 +57,20 @@
                             <input type="checkbox" id="tag-4" name="tag-4" value="4">
                             <label for="tag-4">Tag 4</label>
                         </div>
-                        <button type="button" class="blue btn next-step-btn">
-                            <span>pull</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
+                        <div class="buttons-container">
+                            <button type="button" class="outline btn prev-step-btn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>back</span>
+                            </button>
+                            <button type="button" class="blue btn next-step-btn">
+                                <span>pull</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
                     </form>
                 </div>
 
@@ -82,12 +93,20 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at quam sed orci semper imperdiet eget non nulla. Nam pellentesque lacinia eros quis interdum.</p>
                             </li>
                         </ul>
-                        <button type="button" class="blue btn next-step-btn">
-                            <span>pull</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
+                        <div class="buttons-container">
+                            <button type="button" class="outline btn prev-step-btn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>back</span>
+                            </button>
+                            <button type="button" class="blue btn next-step-btn">
+                                <span>pull</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
                     </form>
                 </div>
 
@@ -103,12 +122,20 @@
                             <option value="3">Agent 3</option>
                         </select>
                         <textarea name="prompt" id="prompt" placeholder="Enter your prompt here" style="resize: none;"></textarea>
-                        <a href="/pages/result.html" class="blue btn">
-                            <span>generate</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
+                        <div class="buttons-container">
+                            <button type="button" class="outline btn prev-step-btn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>back</span>
+                            </button>
+                            <a href="/pages/result.html" class="blue btn">
+                                <span>generate</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>

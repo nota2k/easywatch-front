@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.slide');
     const steps = document.querySelectorAll('.step');
     const nextButtons = document.querySelectorAll('.next-step-btn');
+    const prevButtons = document.querySelectorAll('.prev-step-btn');
     const sliderWrapper = document.querySelector('.slider-wrapper');
     let currentStep = 1;
     const totalSteps = slides.length;
@@ -64,8 +65,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     nextSlide.classList.add('active');
                 }, 10);
             }
+        } else if (stepNumber < currentStep) {
+            // Si on recule vers l'étape précédente
+            // Animation de sortie vers la droite pour le slide actuel
+            if (currentSlide) {
+                currentSlide.classList.add('leaving-back');
+                currentSlide.classList.remove('active');
+            }
+
+            // Animation d'entrée depuis la gauche pour le nouveau slide
+            if (nextSlide) {
+                nextSlide.classList.add('entering-back');
+                // Petit délai pour permettre au navigateur de rendre les changements
+                setTimeout(() => {
+                    nextSlide.classList.add('active');
+                }, 10);
+            }
         } else {
-            // Si on recule (pour l'instant non utilisé, mais préparé pour l'avenir)
+            // Même étape (ne devrait pas arriver, mais au cas où)
             if (currentSlide) {
                 currentSlide.classList.remove('active');
             }
@@ -77,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Nettoyer les classes d'animation après la transition
         setTimeout(() => {
             slides.forEach((slide) => {
-                slide.classList.remove('entering', 'leaving');
+                slide.classList.remove('entering', 'leaving', 'entering-back', 'leaving-back');
             });
             // Recalculer la hauteur après la transition pour s'assurer qu'elle est correcte
             requestAnimationFrame(() => {
@@ -123,6 +140,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Ajouter les écouteurs d'événements aux boutons "back"
+    prevButtons.forEach((button) => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (currentStep > 1) {
+                updateStep(currentStep - 1);
+            }
+        });
+    });
+
     // Mettre à jour la hauteur lors du redimensionnement de la fenêtre
     let resizeTimeout;
     window.addEventListener('resize', function() {
@@ -141,4 +168,79 @@ document.addEventListener('DOMContentLoaded', function() {
             requestAnimationFrame(updateSliderHeight);
         }, 300);
     });
+
+    // Fonctionnalité de copie du HTML pour la page result.html
+    const copyButton = document.getElementById('copy');
+    const contentElement = document.querySelector('.content');
+    
+    if (copyButton && contentElement) {
+        copyButton.addEventListener('click', async function(e) {
+            e.preventDefault();
+            
+            try {
+                // Récupérer le HTML complet de l'élément .content avec toutes les balises et attributs
+                const htmlContent = contentElement.outerHTML;
+                
+                // Le HTML brut contient déjà toutes les balises avec leurs attributs
+                // outerHTML inclut : <div class="content">...</div> avec tout le contenu HTML
+                
+                // Copier le HTML dans le presse-papier
+                if (navigator.clipboard && window.ClipboardItem) {
+                    // Utiliser l'API Clipboard moderne avec HTML et texte brut (HTML avec balises)
+                    const htmlBlob = new Blob([htmlContent], { type: 'text/html' });
+                    // Copier le HTML brut comme texte pour voir toutes les balises
+                    const htmlTextBlob = new Blob([htmlContent], { type: 'text/plain' });
+                    const clipboardItem = new ClipboardItem({
+                        'text/html': htmlBlob,
+                        'text/plain': htmlTextBlob
+                    });
+                    await navigator.clipboard.write([clipboardItem]);
+                } else if (navigator.clipboard && navigator.clipboard.writeText) {
+                    // Fallback: copier le HTML brut avec toutes les balises comme texte
+                    await navigator.clipboard.writeText(htmlContent);
+                } else {
+                    // Fallback pour les navigateurs très anciens
+                    const textArea = document.createElement('textarea');
+                    textArea.value = htmlContent;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    textArea.style.top = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                }
+                
+                // Feedback visuel
+                const originalHTML = copyButton.innerHTML;
+                copyButton.innerHTML = '<span style="color: white; font-size: 12px;">✓ Copié!</span>';
+                setTimeout(() => {
+                    copyButton.innerHTML = originalHTML;
+                }, 2000);
+                
+            } catch (err) {
+                console.error('Erreur lors de la copie:', err);
+                // Essayer avec une méthode alternative
+                try {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = contentElement.outerHTML;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    
+                    const originalHTML = copyButton.innerHTML;
+                    copyButton.innerHTML = '<span style="color: white; font-size: 12px;">✓ Copié!</span>';
+                    setTimeout(() => {
+                        copyButton.innerHTML = originalHTML;
+                    }, 2000);
+                } catch (fallbackErr) {
+                    alert('Impossible de copier le contenu. Veuillez réessayer.');
+                }
+            }
+        });
+    }
 });
