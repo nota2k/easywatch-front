@@ -2,22 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EasyWatch</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <a href="/index.html"><h1>EasyWatch</h1></a>
+        <a href="/index.html">
+            <h1>
+                <span class="easy">Easy</span><span class="watch">Watch.</span>
+            </h1>
+        </a>
     </header>
     <main>
         <form class="steps-form">
-            <h2>Feed your knowledges</h2>
-            <div class="step-1">
-                <h2>Step 1</h2>
-                <p>Enter your email address</p>
-                <input type="email" placeholder="Email">
+            <div class="steps-container">
+                <span id="step-1" class="step active">1</span>
+                <span id="step-2" class="step ">2</span>
+                <span id="step-3" class="step">3</span>
+                <span id="step-4" class="step">4</span>
             </div>
-            <div class="step-2">
+            <h2>Feed your knowledges</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at quam sed orci semper imperdiet eget non nulla. Nam pellentesque lacinia eros quis interdum. Cras posuere ex sit amet turpis imperdiet, non scelerisque nisi volutpat. Fusce nec pharetra odio, ut laoreet tellus. Praesent accumsan odio tellus, sit amet ornare lorem finibus interdum. Pellentesque a venenatis magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris vel tortor id neque ultrices blandit porttitor et nibh.</p>
+            <input type="text" placeholder="RSS feed" class="rss-input">
+            <button type="submit" class="blue">
+                <span>pull</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </form>
     </main>
     <footer>
