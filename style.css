@@ -65,16 +65,16 @@
     --spacing-sm: 12px;
     --spacing-md: 18px;
     --spacing-lg: clamp(10px, 1.5vw, 42px);
-    --spacing-xl: clamp(42px, 1.5vw, 90px);
+    --spacing-xl: clamp(20px, 9vw, 90px);
     --border-radius-xs: 8px;
     --border-radius-sm: 12px;
     --border-radius-md: 18px;
     --border-radius-lg: 24px;
     --border-radius-xl: 30px;
     --font-size-xs: clamp(12px, 1.5vw, 14px);
-    --font-size-sm: clamp(16px, 11.5vw, 20px);
+    --font-size-sm: clamp(16px, 11.5vw, 18px);
     --font-size-md: clamp(16px, 1.5vw, 20px);
-    --font-size-lg: clamp(30px, 5vw, 42px);
+    --font-size-lg: clamp(10px, 5.5vw, 42px);
     --font-size-xl: clamp(40px, 15.5vw, 62px);
 }
 
@@ -103,7 +103,7 @@ main{
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    padding: var(--spacing-xl);
+    padding: var(--spacing-md);
     box-sizing: border-box;
 }
 
@@ -139,6 +139,12 @@ h2 {
 a {
     text-decoration: none;
     color: var(--bleu);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 form{
@@ -195,15 +201,7 @@ form{
 }
 
 /* Media queries pour mobile */
-@media (max-width: 767px) {
-    main {
-        padding: var(--spacing-md);
-    }
-
-    .steps-form {
-        padding: var(--spacing-lg);
-        gap: var(--spacing-md);
-    }
+@media (min-width: 768px) {
 
     .steps-container {
         .step {
@@ -243,7 +241,7 @@ form{
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: var(--spacing-xl);
+    padding: var(--spacing-md);
     width: 100%;
     box-sizing: border-box;
     background-color: var(--jaune);
@@ -272,6 +270,11 @@ form{
         width: 100%;
     }
 
+    label {
+        font-size: var(--font-size-sm);
+        font-weight: 400;
+    }
+
     .rss-input {
         width: 100%;
         padding: var(--spacing-md);
@@ -298,6 +301,7 @@ form{
 @media screen and (min-width: 768px) {
     .steps-form {
         max-width: 70vw;
+        padding: var(--spacing-xl);
     }
 
     main {
@@ -340,15 +344,15 @@ form{
     align-self: flex-end;
     justify-content: space-between;
     gap: var(--spacing-sm);
-    padding: var(--spacing-sm) var(--spacing-xl);
+    padding: var(--spacing-sm) var(--spacing-md);
     border: none;
     min-width: 150px;
     border-radius: 100px;
     font-size: var(--font-size-sm);
     cursor: pointer;
     width: 100%;
-    max-width: 250px;
     box-sizing: border-box;
+    margin-top: var(--spacing-lg);
 
     span {
         transition: transform 0.2s ease-in-out;
@@ -364,7 +368,7 @@ form{
     &:hover {
         opacity: 0.9;
         span {
-            transform: translateX(100%);
+            transform: translateX(80%);
         }
 
         svg {
@@ -382,3 +386,74 @@ form{
     }
 }
 
+@media screen and (min-width: 768px) {
+    .btn {
+        max-width: 250px;
+    }
+}
+
+.articles-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--spacing-sm);
+    padding: 0;
+    margin: 0;
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--white);
+
+    h3 {
+        font-size: var(--font-size-md);
+        font-weight: 700;
+        color: var(--bleu);
+        margin: 0;
+    }
+
+    p {
+        font-size: var(--font-size-sm);
+        font-weight: 400;
+        color: var(--bleu);
+    }
+}
+
+select, textarea {
+    width: 100%;
+}
+
+select {
+    height: 40px;
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    padding-right: 40px;
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    background-color: var(--white);
+    background-image: url('../assets/img/arrow-select.svg');
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-sm) center;
+    background-size: 16px 10px;
+    border: 1px solid var(--bleu);
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 200px;
+    border-radius:var(--border-radius-sm);
+    padding: var(--spacing-md);
+}
