@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('fonts/ProximaNova-Regular.woff2') format('woff2'),
+         url('fonts/ProximaNova-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('fonts/ProximaNova-Bold.woff2') format('woff2'),
+         url('fonts/ProximaNova-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('fonts/ProximaNova-Italic.woff2') format('woff2'),
+         url('fonts/ProximaNova-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('fonts/ProximaNova-BoldItalic.woff2') format('woff2'),
+         url('fonts/ProximaNova-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+:root {
+    --bleu: #000085;
+    --jaune: #F7AF2E;
+    --beige: #FFEFE0;
+    --white: #FFFFFF;
+    --spacing-xs: 6px;
+    --spacing-sm: 12px;
+    --spacing-md: 18px;
+    --spacing-lg: 24px;
+    --spacing-xl: 30px;
+    --spacing-xxl: 36px;
+    --spacing-xxxl: 42px;
+    --spacing-xxxxl: 48px;
+    --spacing-xxxxxl: 54px;
+    --border-radius-xs: 8px;
+    --border-radius-sm: 12px;
+    --font-size-xs: clamp(12px, 1.5vw, 14px);
+    --font-size-sm: clamp(14px, 1.5vw, 18px);
+    --font-size-md: clamp(16px, 1.5vw, 20px);
+    --font-size-lg: clamp(30px, 1.5vw, 42px);
+    --font-size-xl: clamp(50px, 1.5vw, 69px);
+}
+
+body, 
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'ProximaNova', Arial, Helvetica, sans-serif;
+    background-image: url('assets/img/background-noise.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
